@@ -1334,10 +1334,10 @@ __metadata:
     "@babel/preset-env": "npm:^7.15.8"
     babel-jest: "npm:^27.3.1"
     jest: "npm:^29.7.0"
-    rescript: "npm:^12.0.0-alpha.7"
+    rescript: "npm:^12.0.0-alpha.13"
   peerDependencies:
     jest: ^29.7.0
-    rescript: ^12.0.0-alpha.7
+    rescript: ^12.0.0-alpha.13
   languageName: unknown
   linkType: soft
 
@@ -1709,6 +1709,41 @@ __metadata:
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
   checksum: 10c0/5bd7576bb1b38a47a7fc7b51ac9f38748e772beebc56200450c4a817d712232b8f1d3ef70532c80840243c657d491cf6a6be1e3a214cff907645819fdc34aadd
+  languageName: node
+  linkType: hard
+
+"@rescript/darwin-arm64@npm:12.0.0-alpha.13":
+  version: 12.0.0-alpha.13
+  resolution: "@rescript/darwin-arm64@npm:12.0.0-alpha.13"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@rescript/darwin-x64@npm:12.0.0-alpha.13":
+  version: 12.0.0-alpha.13
+  resolution: "@rescript/darwin-x64@npm:12.0.0-alpha.13"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@rescript/linux-arm64@npm:12.0.0-alpha.13":
+  version: 12.0.0-alpha.13
+  resolution: "@rescript/linux-arm64@npm:12.0.0-alpha.13"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@rescript/linux-x64@npm:12.0.0-alpha.13":
+  version: 12.0.0-alpha.13
+  resolution: "@rescript/linux-x64@npm:12.0.0-alpha.13"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@rescript/win32-x64@npm:12.0.0-alpha.13":
+  version: 12.0.0-alpha.13
+  resolution: "@rescript/win32-x64@npm:12.0.0-alpha.13"
+  conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
@@ -4117,16 +4152,33 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rescript@npm:^12.0.0-alpha.7":
-  version: 12.0.0-alpha.7
-  resolution: "rescript@npm:12.0.0-alpha.7"
+"rescript@npm:^12.0.0-alpha.13":
+  version: 12.0.0-alpha.13
+  resolution: "rescript@npm:12.0.0-alpha.13"
+  dependencies:
+    "@rescript/darwin-arm64": "npm:12.0.0-alpha.13"
+    "@rescript/darwin-x64": "npm:12.0.0-alpha.13"
+    "@rescript/linux-arm64": "npm:12.0.0-alpha.13"
+    "@rescript/linux-x64": "npm:12.0.0-alpha.13"
+    "@rescript/win32-x64": "npm:12.0.0-alpha.13"
+  dependenciesMeta:
+    "@rescript/darwin-arm64":
+      optional: true
+    "@rescript/darwin-x64":
+      optional: true
+    "@rescript/linux-arm64":
+      optional: true
+    "@rescript/linux-x64":
+      optional: true
+    "@rescript/win32-x64":
+      optional: true
   bin:
-    bsc: cli/bsc
-    bstracing: lib/bstracing
-    rescript: cli/rescript
-    rescript-tools: cli/rescript-tools
-    rewatch: cli/rewatch
-  checksum: 10c0/5d53a194d62e9edeaaf592594d6929f8a3280bd1b7194c7e04bb5e5226dcb2aa537292d9714d1cfaf017b649e52df9c12984c657fd6c85592a8b257f372a52aa
+    bsc: cli/bsc.js
+    bstracing: cli/bstracing.js
+    rescript: cli/rescript.js
+    rescript-tools: cli/rescript-tools.js
+    rewatch: cli/rewatch.js
+  checksum: 10c0/97ad8615b1a1cbace61e050b65a10bbe280c77b4fe693b99aee7d3c6bb0b2ebd284db16a7aec3d65179267dc610a9737fdf74197f6322b1281113fd588fe1b32
   languageName: node
   linkType: hard
 
