@@ -60,7 +60,11 @@ module LLExpect: {
   type specialMatch
 
   @val external expect: 'a => {..} = "expect"
-  @val external fail: string => unit = "fail"
+  // fail is NOT supported in Jest 27+
+  // @val external fail: string => unit = "fail"
+  let fail: string => unit = (error) => {
+    throw(Failure(error))
+  }
   @val external arrayContaining: array<'a> => specialMatch = "expect.arrayContaining"
   @val external stringContaining: string => specialMatch = "expect.stringContaining"
   let objectContaining: array<string> => {..} = %raw(`
@@ -443,13 +447,13 @@ module MockJs = {
   external fn: fn<'fn, _, _> => 'fn = "%identity"
   @get @scope("mock") external calls: fn<_, 'args, _> => array<'args> = "calls"
   let calls = self =>
-    Js.Array.copy(calls(self)) /* Awesome, the bloody things are mutated so we need to copy */
+    Array.copy(calls(self)) /* Awesome, the bloody things are mutated so we need to copy */
   let calls = self =>
     Array.map(
+      calls(self),
       %raw(`
     function (args) { return args.length === 1 ? args[0] : args }
   `),
-      calls(self),
     ) /* there's no such thing as aa 1-ary tuple, so we need to unbox single-element arrays */
   @get @scope("mock")
   external instances: fn<_, _, 'ret> => array<'ret> =

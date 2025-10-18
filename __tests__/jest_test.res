@@ -14,7 +14,7 @@ let () = describe("Fake Timers", () => {
     let before = flag.contents
     Jest.runAllTimers()
 
-    expect((before, flag.contents)) == (false, true)
+    expect((before, flag.contents))->toEqual((false, true))
   })
 
   test("runAllTicks", () => {
@@ -24,7 +24,7 @@ let () = describe("Fake Timers", () => {
     let before = flag.contents
     Jest.runAllTicks()
 
-    expect((before, flag.contents)) == (false, true)
+    expect((before, flag.contents))->toEqual((false, true))
   })
 
   test("runAllImmediates ", () => {
@@ -34,7 +34,7 @@ let () = describe("Fake Timers", () => {
     let before = flag.contents
     Jest.runAllImmediates()
 
-    expect((before, flag.contents)) == (false, true)
+    expect((before, flag.contents))->toEqual((false, true))
   })
 
   test("runTimersToTime", () => {
@@ -46,7 +46,7 @@ let () = describe("Fake Timers", () => {
     let inbetween = flag.contents
     Jest.advanceTimersByTime(1000)
 
-    expect((before, inbetween, flag.contents)) == (false, false, true)
+    expect((before, inbetween, flag.contents))->toEqual((false, false, true))
   })
 
   test("advanceTimersByTime", () => {
@@ -58,7 +58,7 @@ let () = describe("Fake Timers", () => {
     let inbetween = flag.contents
     Jest.advanceTimersByTime(1000)
 
-    expect((before, inbetween, flag.contents)) == (false, false, true)
+    expect((before, inbetween, flag.contents))->toEqual((false, false, true))
   })
 
   test("runOnlyPendingTimers", () => {
@@ -74,7 +74,7 @@ let () = describe("Fake Timers", () => {
     let inBetween = count.contents
     Jest.runOnlyPendingTimers()
 
-    expect((before, inBetween, count.contents)) == (1, 2, 3)
+    expect((before, inBetween, count.contents))->toEqual((1, 2, 3))
   })
 
   test("clearAllTimers", () => {
@@ -85,7 +85,7 @@ let () = describe("Fake Timers", () => {
     Jest.clearAllTimers()
     Jest.runAllTimers()
 
-    expect((before, flag.contents)) == (false, false)
+    expect((before, flag.contents))->toEqual((false, false))
   })
 
   testAsync("clearAllTimers", finish => {
