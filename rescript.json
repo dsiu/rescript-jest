@@ -2,9 +2,9 @@
   "name": "@glennsl/rescript-jest",
   "namespace": false,
   "compiler-flags": ["-bs-no-version-header"],
-  "suffix": ".bs.js",
+  "suffix": ".res.mjs",
   "package-specs": {
-    "module": "commonjs",
+    "module": "esmodule",
     "in-source": true
   },
   "sources": [

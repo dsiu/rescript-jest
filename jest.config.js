@@ -162,8 +162,9 @@ module.exports = {
   // The glob patterns Jest uses to detect test files
   testMatch: [
     //"**/__tests__/**/*.[jt]s?(x)",
-    "**/__tests__/**/*_test.mjs",
-    "**/__tests__/**/*_test.bs.js",
+    // "**/__tests__/**/*_test.mjs",
+    "**/__tests__/**/*_test.res.mjs",
+    // "**/__tests__/**/*_test.bs.js",
     //"**/?(*.)+(spec|test).[tj]s?(x)"
   ],
 
@@ -195,7 +196,7 @@ module.exports = {
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: [
-    "node_modules/(?!(rescript)/)"
+    "node_modules/(?!(rescript|@rescript/runtime)/)"
   //   "/node_modules/",
   //   "\\.pnp\\.[^\\/]+$",
   //   "/src/"
